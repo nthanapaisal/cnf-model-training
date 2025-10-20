@@ -1,0 +1,240 @@
+Project 2: Supakjeera Thanapaisal
+Notes: I have attached output files for better table visualization for the grader under "final_report_full.csv, final_accuracy_report.csv, final_f1score_report.csv", also below the report.
+_________________________________________________________________________________________________________
+• Part 1 Best hyperparameter settings found via tuning and Classification accuracy and F1 score on the test set.
+{
+    'c300_d100': ['gini', 4, 'best', 0.685, 0.7123287671232876], 
+    'c300_d1000': ['gini', 5, 'best', 0.6725, 0.7095343680709535], 
+    'c300_d5000': ['entropy', 10, 'best', 0.7803, 0.7884041221227006], 
+    'c500_d100': ['entropy', 4, 'best', 0.695, 0.6965174129353234], 
+    'c500_d1000': ['entropy', 5, 'best', 0.682, 0.687007874015748], 
+    'c500_d5000': ['entropy', 10, 'best', 0.7881, 0.7978246350539071], 
+    'c1000_d100': ['entropy', 4, 'random', 0.73, 0.7476635514018691], 
+    'c1000_d1000': ['entropy', 5, 'best', 0.808, 0.8102766798418972], 
+    'c1000_d5000': ['entropy', 10, 'best', 0.8535, 0.8596608870581474], 
+    'c1500_d100': ['entropy', 2, 'best', 0.84, 0.8545454545454545], 
+    'c1500_d1000': ['gini', 10, 'random', 0.92, 0.921645445641528], 
+    'c1500_d5000': ['entropy', 10, 'random', 0.9551, 0.9555753438211141], 
+    'c1800_d100': ['entropy', 4, 'best', 0.925, 0.9282296650717703], 
+    'c1800_d1000': ['entropy', 10, 'best', 0.9745, 0.9747899159663865], 
+    'c1800_d5000': ['entropy', 20, 'random', 0.9834, 0.9835153922542205]
+} acc index[-2] and f1score respectfully index[-1]
+_________________________________________________________________________________________________________
+• Part 2 Best hyperparameter settings found via tuning and Classification accuracy and F1 score on the test set.
+'c1800_d5000': ['entropy', 10, 20, 'log2', 0.9999, 0.9998999899989999] <- acc index[-2] and f1score respectfully index[-1]
+{
+    'c300_d100': ['entropy', 8, 'random', 50, 1.0, 0.78, 0.7731958762886598], 
+    'c300_d1000': ['entropy', 10, 'best', 50, 0.75, 0.8735, 0.8748144482929243], 
+    'c300_d5000': ['entropy', 20, 'random', 50, 0.5, 0.904, 0.9087278950370793], 
+    'c500_d100': ['entropy', 8, 'random', 50, 0.5, 0.845, 0.8516746411483254], 
+    'c500_d1000': ['entropy', 10, 'best', 50, 0.75, 0.8835, 0.8819057273188039], 
+    'c500_d5000': ['gini', 10, 'random', 50, 1.0, 0.9259, 0.9281489382332978], 
+    'c1000_d100': ['gini', 2, 'random', 50, 0.1, 0.92, 0.9207920792079208], 
+    'c1000_d1000': ['entropy', 5, 'random', 50, 0.1, 0.94, 0.9420849420849421], 
+    'c1000_d5000': ['gini', 20, 'best', 50, 0.75, 0.962, 0.9619391025641025], 
+    'c1500_d100': ['entropy', 2, 'best', 50, 0.1, 0.99, 0.9900990099009901], 
+    'c1500_d1000': ['gini', 5, 'random', 50, 0.1, 0.984, 0.9840637450199203], 
+    'c1500_d5000': ['entropy', 20, 'best', 50, 0.5, 0.9894, 0.9894021195760848], 
+    'c1800_d100': ['entropy', 2, 'best', 50, 0.5, 0.935, 0.937799043062201], 
+    'c1800_d1000': ['gini', 10, 'random', 50, 0.1, 0.9935, 0.9934967483741871], 
+    'c1800_d5000': ['entropy', 20, 'random', 50, 1.0, 0.9977, 0.9976979281353218]
+} acc index[-2] and f1score respectfully index[-1]
+_________________________________________________________________________________________________________
+• Part 3 Best hyperparameter settings found via tuning and Classification accuracy and F1 score on the test set.
+Random Forest ['entropy', 10, 20, 'log2', 0.9999, 0.9998999899989999] <- acc index[-2] and f1score respectfully index[-1]
+{
+    'c300_d100': ['entropy', 2, 50, 'sqrt', 0.755, 0.743455497382199], 
+    'c300_d1000': ['entropy', 5, 50, 'sqrt', 0.8465, 0.8473396320238687], 
+    'c300_d5000': ['gini', 5, 50, 'log2', 0.8709, 0.8726196349284657], 
+    'c500_d100': ['entropy', 4, 50, 'sqrt', 0.86, 0.8556701030927835], 
+    'c500_d1000': ['entropy', 5, 50, 'sqrt', 0.9095, 0.9100844510680576], 
+    'c500_d5000': ['gini', 10, 50, 'sqrt', 0.9351, 0.9363538295577131], 
+    'c1000_d100': ['entropy', 4, 50, 'log2', 0.99, 0.9900990099009901], 
+    'c1000_d1000': ['entropy', 15, 50, 'sqrt', 0.98, 0.9799599198396793], 
+    'c1000_d5000': ['gini', 10, 50, 'log2', 0.9936, 0.9936114993012577], 
+    'c1500_d100': ['entropy', 2, 50, 'log2', 1.0, 1.0], 
+    'c1500_d1000': ['entropy', 10, 50, 'sqrt', 1.0, 1.0], 
+    'c1500_d5000': ['gini', 20, 50, 'log2', 1.0, 1.0], 
+    'c1800_d100': ['entropy', 2, 50, 'sqrt', 1.0, 1.0], 
+    'c1800_d1000': ['entropy', 5, 50, 'sqrt', 1.0, 1.0], 
+    'c1800_d5000': ['entropy', 10, 20, 'log2', 0.9999, 0.9998999899989999]
+} acc index[-2] and f1score respectfully index[-1]
+_________________________________________________________________________________________________________
+• Part 4 Best hyperparameter settings found via tuning and Classification accuracy and F1 score on the test set.
+Gradient Boosting ['friedman_mse', 5, 50, 0.1, 0.5, 0.9998, 0.9998] <- acc index[-2] and f1score respectfully index[-1]
+{
+    'c300_d100': ['friedman_mse', 2, 50, 0.1, 1.0, 0.785, 0.7881773399014779], 
+    'c300_d1000': ['friedman_mse', 5, 50, 0.1, 1.0, 0.977, 0.9774730656219393], 
+    'c300_d5000': ['friedman_mse', 5, 50, 0.1, 1.0, 0.9874, 0.9875567845151096], 
+    'c500_d100': ['squared_error', 4, 50, 0.1, 0.5, 0.9, 0.9038461538461539], 
+    'c500_d1000': ['friedman_mse', 5, 50, 0.1, 1.0, 0.984, 0.9841584158415841], 
+    'c500_d5000': ['friedman_mse', 5, 50, 0.1, 1.0, 0.9897, 0.9898029898029898], 
+    'c1000_d100': ['friedman_mse', 10, 50, 0.1, 0.5, 0.94, 0.9393939393939394], 
+    'c1000_d1000': ['friedman_mse', 5, 50, 0.1, 1.0, 0.988, 0.9880478087649402], 
+    'c1000_d5000': ['friedman_mse', 5, 50, 0.1, 1.0, 0.9958, 0.9958083832335329], 
+    'c1500_d100': ['friedman_mse', 2, 50, 0.1, 0.5, 1.0, 1.0], 
+    'c1500_d1000': ['friedman_mse', 5, 50, 0.1, 0.5, 0.998, 0.998001998001998], 
+    'c1500_d5000': ['friedman_mse', 5, 50, 0.1, 0.5, 0.9989, 0.9989005497251374], 
+    'c1800_d100': ['friedman_mse', 2, 50, 0.1, 0.5, 0.99, 0.9900990099009901], 
+    'c1800_d1000': ['friedman_mse', 5, 50, 0.1, 1.0, 0.9995, 0.9995002498750625], 
+    'c1800_d5000': ['friedman_mse', 5, 50, 0.1, 0.5, 0.9998, 0.9998]
+    } acc index[-2] and f1score respectfully index[-1]
+_________________________________________________________________________________________________________
+Part 5
+• Which classifier achieves the best overall generalization accuracy/F1 score? Explain why.
+    accuracy and f1score in my report, are the same scaled ratio.
+    Decision Tree: Accuracy: DT performed very poorly when there are low cluses and examples; around 68% and increased all the way to 98% when there are more data, but still loses to Bagging DT. avg around ~0.82
+    Bagging Decision Tree: Bagging outperformed decision tree for all datasets and it increased the accurcy up to 99.77% when there are more data. avg around ~0.92
+    Random Forest: as dataset increases the better random forest performed, since random forest reduces variance (alot of data), avg around ~0.94
+    Gradient Boost: dominates when the dataset is smaller, outperformed all other model. assuming this is because it reduces bias and the less data there are the more bias it is, avg around ~0.97
+    
+    All models improved with more data and features. In my personal opinion and what I observed in my report, I think the classifier that has the best overall generalization is Gradient Boosting.
+
+• How does increasing the training data size impact accuracy/F1 score for each classifier?
+    Decision Tree: Accuracy: Increasing number of samples, increased accuracy by ~.10
+    Bagging Decision Tree: Increasing number of samples, increased accuracy by ~0.2-.10. but as number of features increases, the difference are smaller.
+    Random Forest: Increasing number of samples, increased accuracy when all of the examples are at 5000, the accuracy for all clause and sample combinations are atleast .87+ 
+    Gradient Boosting: Increasing number of samples, increased accuracy by ~0.01-.20 but as number of features increases, the difference are smaller.
+
+    F1scores: f1score all increases similar scaled ratio to accuracy, the more data, the better f1. 
+
+• How does increasing the number of features (clauses) affect classifier performance?
+    Decision Tree: Accuracy: Increasing number of features, increased accuracy by ~.25-0.30
+    Bagging Decision Tree: Increasing number of features, increased accuracy by ~0.9-.15
+    Random Forest: Increasing number of features, increased accuracy by ~0.11-0.25
+    Gradient Boosting: Increasing number of features, increased accuracy by ~0.01-.20 as the number of sample increases, the smaller improve gap is.
+
+    F1scores: f1score all increases similar scaled ratio to accuracy, the more features, the better f1. 
+
+In conclusion: the more data, the more features the better accuracy and f1 scores are.
+_________________________________________________________________________________________________________
+Part 6
+• Task: Evaluate the four classifiers used earlier—Decision Trees, Bagging, Random Forest, and Gradient Boosting—on the MNIST dataset. Report their classification accuracy (do not compute F1
+scores).
+    DT ['entropy', 20, 'random', 0.9834, 0.9835153922542205] 
+    Bagging DT ['entropy', 20, 'random', 50, 1.0, 0.9977, 0.9976979281353218]
+    Random Forest ['entropy', 10, 20, 'log2', 0.9999, 0.9998999899989999]
+    Gradient Boosting ['friedman_mse', 5, 50, 0.1, 0.5, 0.9998, 0.9998]
+
+• Analysis: Which classifier achieves the highest classification accuracy on MNIST? Provide a brief
+explanation for its superior performance.
+
+# {
+# 'dt': (0.8834, 0.8833323376721032), 
+# 'bagging_dt': (0.9684, 0.9683572194213158), 
+# 'random_forest': (0.9339, 0.9337530089415542), 
+# 'gradient_boosting': (0.9511, 0.9510907272201082)
+# }
+
+Given the report, dt performed average due 88% accuracy to high variance which can cause overfitting. This is expected. 
+bagging-dt improved accuracy to 96% accuracy this is due to bagging preventing overfitting. 
+However, for random forest, it is underperforming (93%) more likely to due to the hyperparameters I chose, 
+only around 20 trees which was great for CNF but since the dataset is so much larger, I should have used more trees. 
+also could be because of feature subset size "log2" which causes underfitting, introduces bias and decreased accuracy. 
+Lastly boosting is lowering bias, with 50 trees it performed average, around 95%, it is slower computation than other models. 
+_________________________________________________________________________________________________________
+Overall report (better tables visualization for the grader under "final_report_full.csv, final_accuracy_report.csv, final_f1score_report.csv")
+{
+'dt': 
+    {'c300_d100': ['gini', 4, 'best', 0.685, 0.7123287671232876], 
+    'c300_d1000': ['gini', 5, 'best', 0.6725, 0.7095343680709535], 
+    'c300_d5000': ['entropy', 10, 'best', 0.7803, 0.7884041221227006], 
+    'c500_d100': ['entropy', 4, 'best', 0.695, 0.6965174129353234], 
+    'c500_d1000': ['entropy', 5, 'best', 0.682, 0.687007874015748], 
+    'c500_d5000': ['entropy', 10, 'best', 0.7881, 0.7978246350539071], 
+    'c1000_d100': ['entropy', 4, 'random', 0.73, 0.7476635514018691], 
+    'c1000_d1000': ['entropy', 5, 'best', 0.808, 0.8102766798418972], 
+    'c1000_d5000': ['entropy', 10, 'best', 0.8535, 0.8596608870581474], 
+    'c1500_d100': ['entropy', 2, 'best', 0.84, 0.8545454545454545], 
+    'c1500_d1000': ['gini', 10, 'random', 0.92, 0.921645445641528], 
+    'c1500_d5000': ['entropy', 10, 'random', 0.9551, 0.9555753438211141], 
+    'c1800_d100': ['entropy', 4, 'best', 0.925, 0.9282296650717703], 
+    'c1800_d1000': ['entropy', 10, 'best', 0.9745, 0.9747899159663865], 
+    'c1800_d5000': ['entropy', 20, 'random', 0.9834, 0.9835153922542205]}, 
+'bagging_dt': {
+    'c300_d100': ['entropy', 8, 'random', 50, 1.0, 0.78, 0.7731958762886598], 
+    'c300_d1000': ['entropy', 10, 'best', 50, 0.75, 0.8735, 0.8748144482929243], 
+    'c300_d5000': ['entropy', 20, 'random', 50, 0.5, 0.904, 0.9087278950370793], 
+    'c500_d100': ['entropy', 8, 'random', 50, 0.5, 0.845, 0.8516746411483254], 
+    'c500_d1000': ['entropy', 10, 'best', 50, 0.75, 0.8835, 0.8819057273188039], 
+    'c500_d5000': ['gini', 10, 'random', 50, 1.0, 0.9259, 0.9281489382332978], 
+    'c1000_d100': ['gini', 2, 'random', 50, 0.1, 0.92, 0.9207920792079208], 
+    'c1000_d1000': ['entropy', 5, 'random', 50, 0.1, 0.94, 0.9420849420849421], 
+    'c1000_d5000': ['gini', 20, 'best', 50, 0.75, 0.962, 0.9619391025641025], 
+    'c1500_d100': ['entropy', 2, 'best', 50, 0.1, 0.99, 0.9900990099009901], 
+    'c1500_d1000': ['gini', 5, 'random', 50, 0.1, 0.984, 0.9840637450199203], 
+    'c1500_d5000': ['entropy', 20, 'best', 50, 0.5, 0.9894, 0.9894021195760848], 
+    'c1800_d100': ['entropy', 2, 'best', 50, 0.5, 0.935, 0.937799043062201], 
+    'c1800_d1000': ['gini', 10, 'random', 50, 0.1, 0.9935, 0.9934967483741871], 
+    'c1800_d5000': ['entropy', 20, 'random', 50, 1.0, 0.9977, 0.9976979281353218]}, 
+'random_forest': {
+    'c300_d100': ['entropy', 2, 50, 'sqrt', 0.755, 0.743455497382199], 
+    'c300_d1000': ['entropy', 5, 50, 'sqrt', 0.8465, 0.8473396320238687], 
+    'c300_d5000': ['gini', 5, 50, 'log2', 0.8709, 0.8726196349284657], 
+    'c500_d100': ['entropy', 4, 50, 'sqrt', 0.86, 0.8556701030927835], 
+    'c500_d1000': ['entropy', 5, 50, 'sqrt', 0.9095, 0.9100844510680576], 
+    'c500_d5000': ['gini', 10, 50, 'sqrt', 0.9351, 0.9363538295577131], 
+    'c1000_d100': ['entropy', 4, 50, 'log2', 0.99, 0.9900990099009901], 
+    'c1000_d1000': ['entropy', 15, 50, 'sqrt', 0.98, 0.9799599198396793], 
+    'c1000_d5000': ['gini', 10, 50, 'log2', 0.9936, 0.9936114993012577], 
+    'c1500_d100': ['entropy', 2, 50, 'log2', 1.0, 1.0], 
+    'c1500_d1000': ['entropy', 10, 50, 'sqrt', 1.0, 1.0], 
+    'c1500_d5000': ['gini', 20, 50, 'log2', 1.0, 1.0], 
+    'c1800_d100': ['entropy', 2, 50, 'sqrt', 1.0, 1.0], 
+    'c1800_d1000': ['entropy', 5, 50, 'sqrt', 1.0, 1.0], 
+    'c1800_d5000': ['entropy', 10, 20, 'log2', 0.9999, 0.9998999899989999]}, 
+'gradient_boosting': {
+    'c300_d100': ['friedman_mse', 2, 50, 0.1, 1.0, 0.785, 0.7881773399014779], 
+    'c300_d1000': ['friedman_mse', 5, 50, 0.1, 1.0, 0.977, 0.9774730656219393], 
+    'c300_d5000': ['friedman_mse', 5, 50, 0.1, 1.0, 0.9874, 0.9875567845151096], 
+    'c500_d100': ['squared_error', 4, 50, 0.1, 0.5, 0.9, 0.9038461538461539], 
+    'c500_d1000': ['friedman_mse', 5, 50, 0.1, 1.0, 0.984, 0.9841584158415841], 
+    'c500_d5000': ['friedman_mse', 5, 50, 0.1, 1.0, 0.9897, 0.9898029898029898], 
+    'c1000_d100': ['friedman_mse', 10, 50, 0.1, 0.5, 0.94, 0.9393939393939394], 
+    'c1000_d1000': ['friedman_mse', 5, 50, 0.1, 1.0, 0.988, 0.9880478087649402], 
+    'c1000_d5000': ['friedman_mse', 5, 50, 0.1, 1.0, 0.9958, 0.9958083832335329], 
+    'c1500_d100': ['friedman_mse', 2, 50, 0.1, 0.5, 1.0, 1.0], 
+    'c1500_d1000': ['friedman_mse', 5, 50, 0.1, 0.5, 0.998, 0.998001998001998], 
+    'c1500_d5000': ['friedman_mse', 5, 50, 0.1, 0.5, 0.9989, 0.9989005497251374], 
+    'c1800_d100': ['friedman_mse', 2, 50, 0.1, 0.5, 0.99, 0.9900990099009901], 
+    'c1800_d1000': ['friedman_mse', 5, 50, 0.1, 1.0, 0.9995, 0.9995002498750625], 
+    'c1800_d5000': ['friedman_mse', 5, 50, 0.1, 0.5, 0.9998, 0.9998]}
+}
+
+accuracy
+{
+    'c300_d100': [0.685, 0.78, 0.755, 0.785], 
+    c300_d1000': [0.6725, 0.8735, 0.8465, 0.977], 
+    'c300_d5000': [0.7803, 0.904, 0.8709, 0.9874], 
+    'c500_d100': [0.695, 0.845, 0.86, 0.9], 
+    'c500_d1000': [0.682, 0.8835, 0.9095, 0.984], 
+    'c500_d5000': [0.7881, 0.9259, 0.9351, 0.9897], 
+    'c1000_d100': [0.73, 0.92, 0.99, 0.94], 
+    'c1000_d1000': [0.808, 0.94, 0.98, 0.988], 
+    'c1000_d5000': [0.8535, 0.962, 0.9936, 0.9958], 
+    'c1500_d100': [0.84, 0.99, 1.0, 1.0], 
+    'c1500_d1000': [0.92, 0.984, 1.0, 0.998], 
+    'c1500_d5000': [0.9551, 0.9894, 1.0, 0.9989], 
+    'c1800_d100': [0.925, 0.935, 1.0, 0.99], 
+    'c1800_d1000': [0.9745, 0.9935, 1.0, 0.9995], 
+    'c1800_d5000': [0.9834, 0.9977, 0.9999, 0.9998]
+}
+
+f1score
+{
+    'c300_d100': [0.7123287671232876, 0.7731958762886598, 0.743455497382199, 0.7881773399014779], 
+    'c300_d1000': [0.7095343680709535, 0.8748144482929243, 0.8473396320238687, 0.9774730656219393], 
+    'c300_d5000': [0.7884041221227006, 0.9087278950370793, 0.8726196349284657, 0.9875567845151096], 
+    'c500_d100': [0.6965174129353234, 0.8516746411483254, 0.8556701030927835, 0.9038461538461539], 
+    'c500_d1000': [0.687007874015748, 0.8819057273188039, 0.9100844510680576, 0.9841584158415841], 
+    'c500_d5000': [0.7978246350539071, 0.9281489382332978, 0.9363538295577131, 0.9898029898029898], 
+    'c1000_d100': [0.7476635514018691, 0.9207920792079208, 0.9900990099009901, 0.9393939393939394], 
+    'c1000_d1000': [0.8102766798418972, 0.9420849420849421, 0.9799599198396793, 0.9880478087649402], 
+    'c1000_d5000': [0.8596608870581474, 0.9619391025641025, 0.9936114993012577, 0.9958083832335329], 
+    'c1500_d100': [0.8545454545454545, 0.9900990099009901, 1.0, 1.0], 
+    'c1500_d1000': [0.921645445641528, 0.9840637450199203, 1.0, 0.998001998001998], 
+    'c1500_d5000': [0.9555753438211141, 0.9894021195760848, 1.0, 0.9989005497251374], 
+    'c1800_d100': [0.9282296650717703, 0.937799043062201, 1.0, 0.9900990099009901], 
+    'c1800_d1000': [0.9747899159663865, 0.9934967483741871, 1.0, 0.9995002498750625], 
+    'c1800_d5000': [0.9835153922542205, 0.9976979281353218, 0.9998999899989999, 0.9998]
+}
