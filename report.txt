@@ -18,7 +18,7 @@ ________________________________________________________________________________
     'c1800_d100': ['entropy', 4, 'best', 0.925, 0.9282296650717703], 
     'c1800_d1000': ['entropy', 10, 'best', 0.9745, 0.9747899159663865], 
     'c1800_d5000': ['entropy', 20, 'random', 0.9834, 0.9835153922542205]
-} acc index[-2] and f1score respectfully index[-1]
+} acc index[-2] and f1score respectively index[-1]
 _________________________________________________________________________________________________________
 • Part 2 Best hyperparameter settings found via tuning and Classification accuracy and F1 score on the test set.
 'c1800_d5000': ['entropy', 10, 20, 'log2', 0.9999, 0.9998999899989999] <- acc index[-2] and f1score respectfully index[-1]
@@ -38,7 +38,7 @@ ________________________________________________________________________________
     'c1800_d100': ['entropy', 2, 'best', 50, 0.5, 0.935, 0.937799043062201], 
     'c1800_d1000': ['gini', 10, 'random', 50, 0.1, 0.9935, 0.9934967483741871], 
     'c1800_d5000': ['entropy', 20, 'random', 50, 1.0, 0.9977, 0.9976979281353218]
-} acc index[-2] and f1score respectfully index[-1]
+} acc index[-2] and f1score respectively index[-1]
 _________________________________________________________________________________________________________
 • Part 3 Best hyperparameter settings found via tuning and Classification accuracy and F1 score on the test set.
 Random Forest ['entropy', 10, 20, 'log2', 0.9999, 0.9998999899989999] <- acc index[-2] and f1score respectfully index[-1]
@@ -58,7 +58,7 @@ Random Forest ['entropy', 10, 20, 'log2', 0.9999, 0.9998999899989999] <- acc ind
     'c1800_d100': ['entropy', 2, 50, 'sqrt', 1.0, 1.0], 
     'c1800_d1000': ['entropy', 5, 50, 'sqrt', 1.0, 1.0], 
     'c1800_d5000': ['entropy', 10, 20, 'log2', 0.9999, 0.9998999899989999]
-} acc index[-2] and f1score respectfully index[-1]
+} acc index[-2] and f1score respectively index[-1]
 _________________________________________________________________________________________________________
 • Part 4 Best hyperparameter settings found via tuning and Classification accuracy and F1 score on the test set.
 Gradient Boosting ['friedman_mse', 5, 50, 0.1, 0.5, 0.9998, 0.9998] <- acc index[-2] and f1score respectfully index[-1]
@@ -78,7 +78,7 @@ Gradient Boosting ['friedman_mse', 5, 50, 0.1, 0.5, 0.9998, 0.9998] <- acc index
     'c1800_d100': ['friedman_mse', 2, 50, 0.1, 0.5, 0.99, 0.9900990099009901], 
     'c1800_d1000': ['friedman_mse', 5, 50, 0.1, 1.0, 0.9995, 0.9995002498750625], 
     'c1800_d5000': ['friedman_mse', 5, 50, 0.1, 0.5, 0.9998, 0.9998]
-    } acc index[-2] and f1score respectfully index[-1]
+    } acc index[-2] and f1score respectively index[-1]
 _________________________________________________________________________________________________________
 Part 5
 • Which classifier achieves the best overall generalization accuracy/F1 score? Explain why.
@@ -132,6 +132,33 @@ However, for random forest, it is underperforming (93%) more likely to due to th
 only around 20 trees which was great for CNF but since the dataset is so much larger, I should have used more trees. 
 also could be because of feature subset size "log2" which causes underfitting, introduces bias and decreased accuracy. 
 Lastly boosting is lowering bias, with 50 trees it performed average, around 95%, it is slower computation than other models. 
+
+Tuning: After seeing the performance with the winners hyperparameters on MNIST dataset, 
+that helped me get a good guess on the range of the tuning hyperparams that I think would help improve accuracy.
+I splitted MNIST dataset train into train/validate sets and only take 10,000 of train for tuning to save time.
+DT: max_depth = [10,20,30]
+BDT: max_depth = [10,20,30], num_trees = [50,80], max_samples = [0.1,0.5]
+rand_forest: depth = [10,20], num_trees = [50,100]
+gboost: depth = [3,5], num_trees = [50,100], learning_r = [0.1, 0.2], subsample = [0.5]
+
+and the winners are below with performance (acc, f1) in respect order. 
+DT: Best Params: criterion: entropy, depth: 20, split: random, accuracy: 0.8199166666666666
+BDT: Best Params: criterion: entropy, depth: 20, split: random, n_estimator: 80, max_samples: 0.5, accuracy: 0.9366666666666666
+rand_forest:Best Params: criterion: entropy, depth: 20, n_estimator: 100, max_features: log2, accuracy: 0.9486666666666667
+gboost: Best Params: criterion: friedman_mse, depth: 5, n_estimator: 100, best_lr: 0.1, best_subsample: 0.5, accuracy: 0.94
+
+Conclusions: The hypertung performance is worse than models those trained with winners from Part 1-4
+This could be due to multiple reasons:
+1. it was overfitting from not splitting train data into train/validate and validation reused.
+2. not enough data to tune only 10,000 of the train 80% and used 20% validate to evaluate before picking winner for that model.
+To fix this, if computation resources and time are allowed, increase the training split that used to tune, would improve performance. 
+
+{
+    'dt': ['entropy', 20, 'random', 0.8834, 0.8833323376721032], 
+    'bagging_dt': ['entropy', 20, 'random', 80, 0.5, 0.9648, 0.9647706371983211], 
+    'random_forest': ['entropy', 20, 100, 'log2', 0.9665, 0.9664777407496], 
+    'gradient_boosting': ['friedman_mse', 5, 100, 0.1, 0.5, 0.961, 0.96099173616844]
+}
 _________________________________________________________________________________________________________
 Overall report (better tables visualization for the grader under "final_report_full.csv, final_accuracy_report.csv, final_f1score_report.csv")
 {
